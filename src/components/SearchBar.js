@@ -1,5 +1,5 @@
 
-function SearchBar() {
+function SearchBar({search,onSearch}) {
     return (
         <div>
             <nav className="navbar navbar-light" style={{ backgroundColor: "#FFFFFF" }}>
@@ -9,9 +9,10 @@ function SearchBar() {
                             <form className="d-flex col-12 col-sm-12">
                                 <input
                                     className="form-control me-2"
-                                    type="search"
+                                    type="text"
                                     placeholder="Search"
-                                    aria-label="Search"
+                                    onChange={(e) => onSearch(e.target.value)}
+                                    value={search}
                                 />
                             </form>
                         </div>

@@ -3,15 +3,17 @@ import img_corazon from "../img/img_corazon.png";
 
 let counter = 0;
 
-function Posts({ date , actor, descripcion, comentarios, im, key }) {
+function Posts({ date , actor, descripcion, comentarios, im }) {
   
   const [tick, setTick] = useState(0);
+  //const loadImage = imageName => (require(`../img/${imageName}`).default);
+//console.log("imprimir imgen--"+loadImage("post3.jpg"));
   
   const handleClick = () => {
     counter += 1;
     setTick(tick+1);
   };
-console.log("entra al componente post");
+console.log("imagen-- "+im) ;
   return (
     <div className="container" style={{ paddingBottom: "20px" }}>
       <div className="row">

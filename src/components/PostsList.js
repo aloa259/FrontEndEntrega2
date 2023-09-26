@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
-import { getPosts } from "../services/posts-services";
 import Posts from "./Posts";
 
-function PostsList() {
-    const [posts,setPosts] = useState([]);
-    console.log(posts);
-    useEffect(() => {
-        getPosts().then((posts) => setPosts(posts));
-    }, []);
+
+function PostsList({posts,search}) {
+    //const posts = props.posts;
+    //const search = props.search;
     
     return (
         <div className="d-flex flex-wrap">
-            {posts.map((post) => {
-                <Posts
-                    date={post.createdAt}
-                    actor={post.autor}
-                    descripcion={post.text}
-                    comentarios={post.comments}
-                    im={post.image}
-                    key={post.id}
-                />
-            })}
+            {posts
+                .filter(e => e.text.toLowerCase().includes(search.toLowerCase()))
+                .map((post) => (
+                    <Posts
+                        key={post.id}
+                        date={post.createdAt}
+                        actor={post.autor}
+                        descripcion={post.text}
+                        comentarios={post.comments}
+                        im={post.image}
+                    />
+                ))
+            }
         </div>
     );
 }

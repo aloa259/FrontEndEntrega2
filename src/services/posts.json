@@ -1,38 +1,39 @@
+
 {
-    "post":[
+    "posts":[
         {
             "id":"1",
-            "createdAt":"3 agosto 24",
+            "createdAt":"03-08-2024", 
             "autor":"Benjamín",
             "text":"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-            "comments":"150",
-            "image":""
+            "comments":150,
+            "image":"post 1.jfif"
         },
         {
             "id":"2",
-            "createdAt":"14 septiembre 22",
+            "createdAt":"14-09-2022",
             "autor":"Rodrigo",
             "text":"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi",
-            "comments":"50",
-            "image":""
+            "comments":50,
+            "image":"post 2.jfif"
             
         },
         {
             "id":"3",
-            "createdAt":"12 noviembre 18",
+            "createdAt":"12-11-2018",
             "autor":"María",
             "text":"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded",
-            "comments":"80",
-            "image":""
+            "comments":80,
+            "image":"post 3.jpg"
             
         },
         {
             "id":"4",
-            "createdAt":"15 septiembre 24",
+            "createdAt":"15-09-2024",
             "autor":"María",
             "text":"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded",
-            "comments":"20",
-            "image":""
+            "comments":20,
+            "image":"post 4.jfif"
             
         }
     ]

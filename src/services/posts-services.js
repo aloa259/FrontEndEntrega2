@@ -1,13 +1,11 @@
 import data from"../services/posts.json";
 
 export function getPosts(){
-    return data.post;
-    return new Promise ( (resolve,reject) => {
+    //return data.posts;
+    return new Promise ( (resolve) => {
         setTimeout(() => {
             resolve(data.posts);
         }, Math.random () * 3000 );
-
     });
 
 }
-export default getPosts;

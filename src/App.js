@@ -4,33 +4,58 @@ import SearchBar from './components/SearchBar';
 import Profile from './components/Profile';
 import avatar from './img/profile.png';
 import PostsList from './components/PostsList';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getPosts } from './services/posts-services';
 
 let counter = 0;
+const initialState = [];
 
-function App() { 
-  const [tick, setTick] = useState(0);
- 
-  function onProfileClick() {
-    console.log("es boton de profile");
-    <Profile avatar={avatar} username="Pedro" bio="ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"/>
+function App() {
+  const [seccion, setSeccion] = useState("posts");
+  const [search, setSearch] = useState("");
+  const [posts, setPosts] = useState(initialState);
 
+  useEffect(() => {
+    console.log("se monta el componente use Effect");
+    getPosts().then((posts) => setPosts(posts));
+  }, []);
+
+  console.log("render array" + posts);
+
+  const onProfileClick = () => {
+    setSeccion("profile");
   };
 
-  function onLogoclick(){
-    console.log("es boton de logo");
-  }
+  const onLogoClick = () => {
+    setSeccion("posts");
+  };
 
-  const handleClick = () => {
-    counter += 1;
-    setTick(tick + 1);
-  }
+  const onSearch = (text) => {
+    setSearch(text);
+    console.log("entra a Search" + search);
+  };
+
+  console.log("Impresión del search " + search);
 
   return (
     <>
-      <NavBar/>
-      <SearchBar/>
-      <PostsList>safdf</PostsList>
+      <NavBar onProfileClick={onProfileClick} onLogoClick={onLogoClick} />
+      <SearchBar search={search} onSearch={onSearch} />
+      {seccion === "profile"
+        ? <Profile avatar={avatar} username="Pedro" bio="ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"/>
+        : null
+      }
+      {
+        posts === initialState
+          ? "Load..."
+          : null
+      }
+      {
+        seccion === "posts"
+          ? <PostsList posts={posts} search={search} />
+          : null
+      }
     </>
   );
 }
